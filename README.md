@@ -44,3 +44,62 @@ Most often used MVS (or z/OS) console commands
  ANOTHER CONSOLE, TO CONTROL A DISPLAY IN A PARTICULAR AREA,
  TO RE-ROUTE CONSOLE MESSAGES, OR TO VARY THE USE OF A  CONSOLE.
   </pre>
+  
+  
+  JES2 Related Commands
+  =====================
+  
+  <pre>
+  s jes2
+and we now see the message
+
+ - s jes2
+   IEF677I WARNING MESSAGE(S) FOR JOB JES2     ISSUED
+  *01 $HASP426 SPECIFY OPTIONS - HASP-II, VERSION JES2 4.1
+to which you reply
+
+r 01,format,noreq
+You could have provided the statrtup option in the start command as well, like this
+
+s jes2,,,parm='FORMAT,NOREQ'
+JES start up now continues (hopefully), and the next message might get thrown your way
+
+   *02 $HASP479 UNABLE TO OBTAIN CKPT DATA SET LOCK - IO ERROR           -
+   * REPLY Y OR N TO CONTINUE
+The corect reply now of cours eis
+
+r 02,y
+followed by
+   IEE600I REPLY TO 02 IS;SUPPRESSED
+  *03 $HASP436 REPLY Y OR N TO CONFIRM CHECKPOINT RECORD CHANGE
+and
+
+r 03,y
+Startup of JES now continues, and you might see more messages
+
+      IGF992I  MIH INIT COMPLETE, PRI=000300, SEC=000015
+      IEE360I SMF NOW RECORDING ON SYS1.MANX ON MVSRES TIME=14.29.46
+      IEF677I WARNING MESSAGE(S) FOR JOB JES2     ISSUED
+    - $HASP493 JES2  QUICK-START IS IN PROGRESS
+    - $HASP412 MAXIMUM OF 1   READER(S)  EXCEEDED
+     *         *IEA000A 00C,INT REQ,42,0E40,4000,,,JES2
+                IEE041I THE SYSTEM LOG IS NOW ACTIVE
+                $HASP000 OK
+                $HASP000 OK
+                $HASP000 OK
+                $HASP000 OK
+                $HASP000 OK
+                $HASP000 OK
+                $HASP000 OK
+                $HASP000 OK
+                $HASP000 OK
+                $HASP000 OK
+                $HASP160 PRINTER1 INACTIVE - CLASS=A
+                $HASP160 PRINTER2 INACTIVE - CLASS=Z
+
+  IEE152I     ENTER     CANCEL     D C,K
+
+
+                                                         IEE159E MESSAGE WAITING
+Note: The message $HASP412 can be safely ignored. 
+</pre>
