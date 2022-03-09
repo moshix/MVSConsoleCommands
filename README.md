@@ -2,7 +2,7 @@
 
 Most often used MVS (or z/OS) console commands
 
-<pri>
+<pre>
   d c,k
 15.44.56           IEE162I 15.44.56 K COMMAND 551
  K A,REF      DISPLAY ALL DISPLAY AREA DEFINITIONS
@@ -43,4 +43,4 @@ Most often used MVS (or z/OS) console commands
  THE ROUTING OPERAND L=CCA IS ADDED TO A K COMMAND TO DEFINE AREAS ON
  ANOTHER CONSOLE, TO CONTROL A DISPLAY IN A PARTICULAR AREA,
  TO RE-ROUTE CONSOLE MESSAGES, OR TO VARY THE USE OF A  CONSOLE.
-  </pri>
+  </pre>
